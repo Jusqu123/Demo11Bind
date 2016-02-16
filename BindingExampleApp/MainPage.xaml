@@ -1,0 +1,46 @@
+﻿<Page
+    x:Class="BindingExampleApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BindingExampleApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ProgressBar HorizontalAlignment="Left"
+                     Height="10"
+                     Margin="56,320,0,0"
+                     VerticalAlignment="Top"
+                     Width="100"
+                     Value="{Binding Value, ElementName=slider}"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="56,378,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="textBlock"
+                   HorizontalAlignment="Left"
+                   Margin="208,310,0,0"
+                   TextWrapping="Wrap"
+                   Text="{Binding Value,ElementName=slider}"
+                   VerticalAlignment="Top" Width="50"/>
+        <TextBox x:Name="textBox" 
+                 HorizontalAlignment="Left"
+                 Margin="208,385,0,0"
+                 TextWrapping="Wrap"
+                 Text="{Binding Value, ElementName=slider,Mode=TwoWay}"
+                 VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock1"
+                   HorizontalAlignment="Left"
+                   Margin="56,125,0,0"
+                   TextWrapping="Wrap"
+                   Text="{x:Bind PropertyBindingText}"
+                   VerticalAlignment="Top"/>
+        <StackPanel HorizontalAlignment="Left"
+                    Height="100"
+                    Margin="56,468,0,0"
+                    VerticalAlignment="Top"
+                    Width="202">
+            <TextBlock Text="{x:Bind person.Firstname}"/>
+            <TextBlock Text="{x:Bind person.Lastname}"/>
+        </StackPanel>
+    </Grid>
+
+</Page>
